@@ -84,22 +84,67 @@ Feedback is logged in `feedback/feedback-log.md` and drives the next revision cy
 
 ---
 
-## Repository Contents
+## Repository Structure
 
 ```
 multi-role-team/
-├── README.md
-├── LICENSE.md                              CC BY 4.0
-├── CHANGELOG.md                            Version history
+├── README.md                                           This file
+├── LICENSE.md                                          CC BY 4.0
+├── CHANGELOG.md                                        Version history
 ├── claude/
-│   └── multi-role-team.skill              Claude-native installable skill
+│   ├── multi-role-team.skill                           Claude-native installable skill
+│   ├── roles/
+│   │   ├── pm.md                                       PM role — full reference
+│   │   ├── cis.md                                      CIS role — full reference
+│   │   ├── developer.md                                DEV role — full reference
+│   │   ├── qa.md                                       QA role — full reference
+│   │   ├── automation.md                               AUTO role — full reference
+│   │   ├── doc-writer.md                               DOC role — full reference
+│   │   └── trainer.md                                  TRAIN role — full reference
+│   └── ai-capabilities/
+│       ├── _PROMPT.md                                  Standardized profile generation prompt
+│       ├── claude.md                                   Anthropic Claude profile
+│       ├── chatgpt.md                                  OpenAI ChatGPT profile
+│       ├── gemini.md                                   Google Gemini profile
+│       ├── copilot.md                                  Microsoft Copilot profile
+│       └── grok.md                                     xAI Grok profile
 ├── universal/
-│   └── multi-role-team-universal-prompt.md  Platform-agnostic system prompt
+│   └── multi-role-team-universal-prompt.md             Platform-agnostic system prompt
 ├── docs/
-│   └── multi-role-team-adaptation-guide.docx  Setup guide for other platforms
+│   └── multi-role-team-adaptation-guide.docx           Setup guide for OpenAI, Microsoft, Google
 └── feedback/
-    └── feedback-log.md                    Running real-world feedback log
+    └── feedback-log.md                                 Running real-world feedback log
 ```
+
+---
+
+## Deployment
+
+### Claude (Anthropic)
+Install `claude/multi-role-team.skill` into your Claude skills directory at `/mnt/skills/user/multi-role-team/SKILL.md`. The `roles/` and `ai-capabilities/` directories travel with the skill. Claude will auto-trigger the framework when you mention project planning, WBS, role breakdowns, requirements traceability, or related tasks.
+
+### Other Platforms (OpenAI, Microsoft Copilot, Google Gemini)
+Use `universal/multi-role-team-universal-prompt.md` as your system prompt or custom assistant instructions. See `docs/multi-role-team-adaptation-guide.docx` for full platform-specific setup steps.
+
+---
+
+## AI Capabilities Directory
+
+The `claude/ai-capabilities/` folder contains manually maintained profiles for five AI platforms (Claude, ChatGPT, Gemini, Copilot, Grok). The PM agent consults these profiles when annotating WBS role assignments with recommended AI in multi-AI workflows.
+
+To refresh a profile, use the standardized prompt in `claude/ai-capabilities/_PROMPT.md`. The `Last Reviewed` field in each profile (date + model version string) is the reliability indicator — treat stale profiles as advisory only.
+
+---
+
+## What's New in v1.1
+
+- Added `claude/roles/` directory — full reference files for all seven roles (pm, cis, developer, qa, automation, doc-writer, trainer)
+- Added `claude/ai-capabilities/` directory — `_PROMPT.md` plus profiles for Claude, ChatGPT, Gemini, Microsoft Copilot, and Grok
+- Added `docs/multi-role-team-adaptation-guide.docx` — full platform adaptation guide
+- Updated `claude/multi-role-team.skill` — references roles/ and ai-capabilities/, version bumped to 1.1
+- Added `CHANGELOG.md`
+
+See `CHANGELOG.md` for full version history.
 
 ---
 

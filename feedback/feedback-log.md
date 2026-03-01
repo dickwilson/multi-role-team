@@ -11,3 +11,16 @@ Entries are appended after each session debrief. Patterns in this log drive the 
 ---
 
 *No entries yet. First entry will be added after the first real project engagement.*
+```
+**Date:**
+**Platform:** (Claude / ChatGPT / Copilot / Gemini / Grok)
+**Model version:**
+**Project type:**
+**Roles activated:**
+**Worked well:**
+**Do more of:**
+**Do less of:**
+**Could improve:**
+**Total failure (if any):**
+**AI profile 
+```
